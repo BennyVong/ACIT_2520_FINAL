@@ -1,6 +1,7 @@
 const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
+const api = require('./utils')
 
 const port = process.env.PORT || 8080;
 
@@ -34,14 +35,8 @@ app.use((request, response, next) => {
 
 app.get('/', (request, response) => {
     //response.send('<h1>Hello Express!</h1>');
-    response.send({
-        name: 'Your Name',
-        school: [
-            'BCIT',
-            'SFU',
-            'Butt'
-        ]
-    });
+    response.render('homepage.hbs')
+    ;
 });
 
 app.get('/info', (request, response) => {
@@ -50,6 +45,32 @@ app.get('/info', (request, response) => {
         year: new Date().getFullYear(),
         welcome: 'Hello!'
     });
+});
+
+app.post('/nasasearch', (request, response) => {
+//    var search = request.body.search;
+    api.getImage('mars').then((result) => {
+        response.render('nasasearch.hbs', {
+            images: result.image
+    });
+    })
+});
+
+app.get('/nasa', (request, response) => {
+    response.render('nasa.hbs')
+});
+
+app.get('/card', (request, response) => {
+    response.render('card.hbs');
+});
+
+app.post('/cardsearch', (request, response) => {
+//    var count = request.body.card;
+    api.getCard(5).then((result) => {
+        response.render('cardsearch.hbs', {
+            cards: result.card
+        })
+    })
 });
 
 app.get('/404', (request, response) => {
