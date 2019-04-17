@@ -1,0 +1,28 @@
+{
+  "name": "acit_2520_final",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "fs": "^0.0.1-security",
+    "hbs": "^4.0.4",
+    "promise": "^8.0.3",
+    "yargs": "^13.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BennyVong/ACIT_2520_FINAL.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BennyVong/ACIT_2520_FINAL/issues"
+  },
+  "homepage": "https://github.com/BennyVong/ACIT_2520_FINAL#readme"
+}
